@@ -77,7 +77,7 @@ cmd("BufEnter", {
     local wins = vim.api.nvim_tabpage_list_wins(0)
     -- Both neo-tree and aerial will auto-quit if there is only a single window left
     if #wins <= 1 then return end
-    local sidebar_fts = { aerial = true, ["neo-tree"] = true }
+    local sidebar_fts = { aerial = true,["neo-tree"] = true }
     for _, winid in ipairs(wins) do
       if vim.api.nvim_win_is_valid(winid) then
         local bufnr = vim.api.nvim_win_get_buf(winid)
@@ -85,7 +85,7 @@ cmd("BufEnter", {
         -- If any visible windows are not sidebars, early return
         if not sidebar_fts[filetype] then
           return
-        -- If the visible window is a sidebar
+          -- If the visible window is a sidebar
         else
           -- only count filetypes once, so remove a found sidebar from the detection
           sidebar_fts[filetype] = nil
@@ -200,7 +200,18 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
     end
   end,
 })
-
+vim.api.nvim_create_augroup("nobg", { clear = true })
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  desc = "Make all backgrounds transparent",
+  group = "nobg",
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
+    -- etc...
+  end,
+})
 create_command(
   "AstroUpdatePackages",
   function() astronvim.updater.update_packages() end,

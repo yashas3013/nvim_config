@@ -1,6 +1,8 @@
 local impatient_ok, impatient = pcall(require, "impatient")
 if impatient_ok then impatient.enable_profile() end
 
+
+vim.opt.clipboard = 'unnamedplus'
 for _, source in ipairs {
   "core.utils",
   "core.options",

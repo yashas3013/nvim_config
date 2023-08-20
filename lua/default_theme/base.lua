@@ -1,6 +1,6 @@
 local base = {
-  Normal = { fg = C.fg, bg = C.bg },
-  NormalNC = { fg = C.fg, bg = C.black },
+  Normal = { fg = "NONE", bg = "NONE" },
+  NormalNC = { fg = "NONE", bg = "NONE" },
   Comment = { fg = C.grey_2, bg = C.none },
   Constant = { fg = C.yellow, bg = C.none },
   String = { fg = C.green, bg = C.none },
@@ -73,7 +73,7 @@ local base = {
   TabLine = { fg = C.grey, bg = C.none },
   TabLineSel = { fg = C.fg, bg = C.none },
   TabLineFill = { fg = C.none, bg = C.grey_3 },
-  Terminal = { fg = C.fg, bg = C.grey_3 },
+  Terminal = { fg = "NONE", bg = "NONE" },
   Visual = { fg = C.none, bg = C.grey_5 },
   VisualNOS = { fg = C.grey_5, bg = C.none },
   WarningMsg = { fg = C.yellow, bg = C.none },

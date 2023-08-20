@@ -22,6 +22,7 @@ local colors = {
   yellow = "#e5c07b",
   yellow_1 = "#ebae34",
   yellow_2 = "#d1b071",
+  pink = '#d026ff',
   red = "#e06c75",
   red_1 = "#ec5f67",
   red_2 = "#ffbba6",
@@ -45,7 +46,6 @@ local colors = {
   purple = "#c678dd",
   purple_1 = "#a9a1e1",
   purple_2 = "#c2bdea",
-
   -- icon colors
   c = "#519aba",
   css = "#61afef",
